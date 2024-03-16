@@ -33,7 +33,7 @@ def sendwhatmsg_instantly(
     if not fullmatch(r"^\+?[0-9]{2,4}\s?[0-9]{9,15}", phone_no):
         raise exceptions.InvalidPhoneNumber("Invalid Phone Number.")
 
-    web.open(f"https://web.whatsapp.com/send?phone={phone_no}")
+    web.open(f"https://api.whatsapp.com/send?phone={phone_no}")
     time.sleep(wait_time)
     index = 0
     length = len(message)
@@ -72,7 +72,7 @@ def sendimg_or_video_immediately(
     if not fullmatch(r"^\+?[0-9]{2,4}\s?[0-9]{9,15}", phone_no):
         raise exceptions.InvalidPhoneNumber("Invalid Phone Number.")
 
-    web.open(f"https://web.whatsapp.com/send?phone={phone_no}")
+    web.open(f"https://api.whatsapp.com/send?phone={phone_no}")
     time.sleep(wait_time)
     core.find_link()
     time.sleep(1)
@@ -111,7 +111,7 @@ def sendwhatdoc_immediately(
     if not fullmatch(r"^\+?[0-9]{2,4}\s?[0-9]{9,15}", phone_no):
         raise exceptions.InvalidPhoneNumber("Invalid Phone Number.")
 
-    web.open(f"https://web.whatsapp.com/send?phone={phone_no}")
+    web.open(f"https://api.whatsapp.com/send?phone={phone_no}")
     time.sleep(wait_time)
     core.find_link()
     time.sleep(1)
@@ -296,7 +296,7 @@ def open_web() -> bool:
     """Opens WhatsApp Web"""
 
     try:
-        web.open("https://web.whatsapp.com")
+        web.open("https://api.whatsapp.com")
     except web.Error:
         return False
     else:
